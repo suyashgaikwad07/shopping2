@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shri Gift House Shopping Theme</title>
+  <meta name="description" content="Premium shopping theme website for Shri Gift House and Ladies Shop in Shirur, Pune." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root,[data-theme="light"]{
+      --text-xs:clamp(.75rem,.7rem + .25vw,.875rem);
+      --text-sm:clamp(.875rem,.8rem + .35vw,1rem);
+      --text-base:clamp(1rem,.95rem + .25vw,1.125rem);
+      --text-lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+      --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.2rem);
+      --text-2xl:clamp(2.1rem,1.1rem + 3vw,4rem);
+      --space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;
+      --space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;
+      --bg:#fffdf9;--surface:#ffffff;--surface-2:#f8f5ef;--surface-3:#f2ece2;--border:#e7dece;
+      --text:#1f1a14;--muted:#6f665a;--faint:#a29789;--primary:#21170f;--accent:#ab7a45;
+      --accent-2:#e9d8be;--success:#1e8d50;--inverse:#fffdf9;
+      --radius-sm:.5rem;--radius-md:.9rem;--radius-lg:1.2rem;--radius-xl:1.6rem;--radius-full:999px;
+      --shadow-sm:0 2px 8px rgba(25,18,10,.06);--shadow-md:0 16px 36px rgba(25,18,10,.10);
+      --shadow-lg:0 28px 70px rgba(25,18,10,.14);--content:1180px;
+      --font-display:'Cormorant Garamond',serif;--font-body:'Inter',sans-serif;
+      --transition:180ms cubic-bezier(.16,1,.3,1)
+    }
+    [data-theme="dark"]{
+      --bg:#161310;--surface:#1e1915;--surface-2:#241f19;--surface-3:#2e271e;--border:#3d3429;
+      --text:#f5efe7;--muted:#cbc1b4;--faint:#978a7a;--primary:#fff7ee;--accent:#d9b07a;
+      --accent-2:#3b3126;--success:#59c786;--inverse:#17120e;
+      --shadow-sm:0 2px 8px rgba(0,0,0,.18);--shadow-md:0 16px 36px rgba(0,0,0,.25);
+      --shadow-lg:0 28px 70px rgba(0,0,0,.32)
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);font-size:var(--text-base);background:var(--bg);color:var(--text);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    img,svg{display:block;max-width:100%}
+    button{font:inherit;border:0;background:none;cursor:pointer}
+    .container{width:min(100% - 2rem,var(--content));margin-inline:auto}
+    .skip{position:absolute;left:1rem;top:-3rem;background:var(--primary);color:var(--inverse);padding:.75rem 1rem;border-radius:var(--radius-sm)}
+    .skip:focus{top:1rem}
+    .topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+    .nav{display:flex;justify-content:space-between;align-items:center;gap:var(--space-4);padding:1rem 0}
+    .brand{display:flex;align-items:center;gap:.9rem}
+    .logo{width:48px;height:48px;border-radius:1rem;background:linear-gradient(145deg,var(--accent),#8a6135);color:white;display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+    .brand h1{font-family:var(--font-display);font-size:1.5rem;line-height:1}
+    .brand p{font-size:var(--text-xs);color:var(--muted)}
+    .nav-links{display:flex;gap:1rem;flex-wrap:wrap}
+    .nav-links a{font-size:var(--text-sm);color:var(--muted)}
+    .nav-actions{display:flex;gap:.75rem;align-items:center}
+    .theme-toggle{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--surface);display:grid;place-items:center}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:44px;padding:.9rem 1.2rem;border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:600;border:1px solid transparent;transition:all var(--transition)}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--primary);color:var(--inverse)}
+    .btn-secondary{background:var(--surface);border-color:var(--border)}
+    .btn-accent{background:var(--accent);color:white}
+    .btn-whatsapp{background:var(--success);color:white}
+    .hero{padding:clamp(4rem,8vw,7rem) 0 4rem;background:radial-gradient(circle at top right,color-mix(in srgb,var(--accent-2) 75%,transparent),transparent 35%),linear-gradient(180deg,var(--bg),var(--surface-2))}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--space-8);align-items:center}
+    .pill{display:inline-flex;padding:.45rem .8rem;border-radius:var(--radius-full);border:1px solid var(--border);background:var(--surface);font-size:var(--text-xs);color:var(--muted);margin-bottom:var(--space-4)}
+    .hero h2{font-family:var(--font-display);font-size:var(--text-2xl);line-height:.95;letter-spacing:-.03em;max-width:10ch;margin-bottom:1rem}
+    .hero p{max-width:56ch;color:var(--muted);margin-bottom:1.25rem}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:.85rem}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem}
+    .stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1rem;box-shadow:var(--shadow-sm)}
+    .stat strong{display:block;font-size:var(--text-lg)}
+    .stat span{font-size:var(--text-xs);color:var(--muted)}
+    .hero-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);padding:var(--space-6);box-shadow:var(--shadow-lg)}
+    .offer-banner{display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;padding:1rem 1.1rem;border-radius:var(--radius-lg);background:linear-gradient(145deg,var(--accent-2),var(--surface));border:1px solid var(--border);margin-bottom:1rem}
+    .offer-banner strong{font-size:var(--text-lg)}
+    .offer-banner p{color:var(--muted);font-size:var(--text-sm)}
+    .mini-list{display:grid;gap:.9rem}
+    .mini-item{display:flex;justify-content:space-between;gap:1rem;padding-bottom:.8rem;border-bottom:1px solid var(--border)}
+    .mini-item:last-child{border-bottom:0;padding-bottom:0}
+    section{padding:clamp(3rem,6vw,5rem) 0}
+    .head{display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem}
+    .head h3{font-family:var(--font-display);font-size:var(--text-xl)}
+    .head p{max-width:58ch;color:var(--muted)}
+    .categories,.products,.perks,.testimonials{display:grid;gap:1rem}
+    .categories{grid-template-columns:repeat(4,1fr)}
+    .products{grid-template-columns:repeat(4,1fr)}
+    .perks{grid-template-columns:repeat(3,1fr)}
+    .testimonials{grid-template-columns:repeat(3,1fr)}
+    .product-card,.testimonial,.perk{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm)}
+    .perk,.testimonial{padding:1.25rem}
+    .category-card{padding:1.2rem;display:grid;gap:.75rem;background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--border);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm)}
+    .category-icon{width:54px;height:54px;border-radius:1rem;background:var(--accent-2);display:grid;place-items:center}
+    .category-card h4,.product-card h4{font-size:1.05rem}
+    .category-card p,.perk p,.testimonial p,.product-card p{color:var(--muted);font-size:var(--text-sm)}
+    .product-card{overflow:hidden}
+    .product-top{padding:1.2rem;min-height:190px;background:linear-gradient(145deg,var(--surface-2),var(--surface-3));display:flex;align-items:flex-end;justify-content:space-between}
+    .badge{display:inline-flex;padding:.38rem .68rem;border-radius:var(--radius-full);font-size:var(--text-xs);background:var(--accent-2);color:var(--text)}
+    .price{font-weight:700;font-size:1.05rem}
+    .product-content{padding:1.1rem;display:grid;gap:.75rem}
+    .product-meta{display:flex;justify-content:space-between;align-items:center;gap:.5rem}
+    .stars{font-size:var(--text-xs);color:var(--accent)}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+    .feature-panel{background:linear-gradient(180deg,var(--primary),#3a2919);color:var(--inverse);padding:1.4rem;border-radius:var(--radius-xl);box-shadow:var(--shadow-md)}
+    .feature-panel p{color:color-mix(in srgb,var(--inverse) 78%,transparent)}
+    .list{display:grid;gap:.8rem;margin-top:1rem}
+    .list div{display:flex;justify-content:space-between;gap:1rem;padding-bottom:.75rem;border-bottom:1px solid color-mix(in srgb,var(--inverse) 15%,transparent)}
+    .list div:last-child{border-bottom:0;padding-bottom:0}
+    .contact-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:1.2rem}
+    .contact-box{padding:1.3rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm)}
+    .contact-item{padding:1rem;border-radius:var(--radius-lg);background:var(--surface-2);border:1px solid var(--border);margin-bottom:.8rem}
+    .contact-item small{display:block;color:var(--faint);margin-bottom:.2rem}
+    .map{min-height:420px;border-radius:var(--radius-xl);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-sm)}
+    iframe{width:100%;height:100%;min-height:420px;border:0}
+    .cta{padding:1.5rem;border-radius:var(--radius-xl);background:linear-gradient(145deg,var(--accent),#8b6031);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+    .cta p{color:rgba(255,255,255,.84)}
+    footer{padding:2rem 0 2.5rem;border-top:1px solid var(--border);color:var(--muted)}
+    .footer-grid{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    @media (max-width:1024px){
+      .products,.categories{grid-template-columns:repeat(2,1fr)}
+      .testimonials,.perks,.split,.contact-grid,.hero-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:720px){
+      .products,.categories,.perks,.testimonials,.stats{grid-template-columns:1fr}
+      .nav{flex-direction:column;align-items:flex-start}
+      .nav-actions,.hero-actions{width:100%}
+      .hero-actions .btn,.nav-actions .btn{flex:1 1 100%}
+    }
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 12v7a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-7"/>
+            <path d="M2 7h20v5H2z"/>
+            <path d="M12 22V7"/>
+            <path d="M12 7H7.5a2.5 2.5 0 1 1 0-5C10 2 12 7 12 7z"/>
+            <path d="M12 7h4.5a2.5 2.5 0 1 0 0-5C14 2 12 7 12 7z"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Shri Gift House</h1>
+          <p>Shopping theme • Ladies & gift store • Shirur</p>
+        </div>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#categories">Categories</a>
+        <a href="#featured">Featured</a>
+        <a href="#offers">Offers</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="tel:+919139013499">Call Shop</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="pill">Premium shopping theme for your store</span>
+          <h2>Shop gifts, fashion picks, and ladies essentials in style.</h2>
+          <p>Shri Gift House and Ladies Shop now has a more premium shopping-style homepage with featured products, category sections, offers, and quick contact buttons for local customers in Shirur.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#featured">Shop Collection</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/919139013499?text=Hello%20Shri%20Gift%20House%2C%20I%20want%20to%20see%20your%20latest%20products." target="_blank" rel="noopener noreferrer">WhatsApp Now</a>
+            <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=B.J.+Corner+Shirur+Pune" target="_blank" rel="noopener noreferrer">Visit Store</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat"><strong>2</strong><span>Main product categories</span></div>
+            <div class="stat"><strong>10 AM – 9 PM</strong><span>Store timing</span></div>
+            <div class="stat"><strong>Shirur</strong><span>Local shopping destination</span></div>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <div class="offer-banner">
+            <div>
+              <strong>In-store shopping offers</strong>
+              <p>Gift picks, ladies accessories, and local favourites.</p>
+            </div>
+            <span class="badge">Featured</span>
+          </div>
+
+          <div class="mini-list">
+            <div class="mini-item"><span>Gift collection</span><strong>Popular</strong></div>
+            <div class="mini-item"><span>Ladies products</span><strong>Trending</strong></div>
+            <div class="mini-item"><span>Return gifts</span><strong>Best seller</strong></div>
+            <div class="mini-item"><span>Accessories</span><strong>New style</strong></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="categories">
+      <div class="container">
+        <div class="head">
+          <div>
+            <h3>Shop by category</h3>
+            <p>Gift and ladies product sections for faster browsing.</p>
+          </div>
+        </div>
+
+        <div class="categories">
+          <article class="category-card">
+            <div class="category-icon">🎁</div>
+            <h4>Gift Products</h4>
+            <p>Birthday gifts, festive picks, return gifts, and decorative items for every occasion.</p>
+            <span class="badge">Shop gifts</span>
+          </article>
+
+          <article class="category-card">
+            <div class="category-icon">👜</div>
+            <h4>Ladies Products</h4>
+            <p>Ladies essentials, stylish accessories, and everyday useful fashion items.</p>
+            <span class="badge">Ladies style</span>
+          </article>
+
+          <article class="category-card">
+            <div class="category-icon">✨</div>
+            <h4>Best Sellers</h4>
+            <p>Popular choices displayed first so customers can quickly spot trusted products.</p>
+            <span class="badge">Top picks</span>
+          </article>
+
+          <article class="category-card">
+            <div class="category-icon">🎉</div>
+            <h4>Occasion Specials</h4>
+            <p>Selections for festivals, family functions, small celebrations, and gifting moments.</p>
+            <span class="badge">Seasonal</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured">
+      <div class="container">
+        <div class="head">
+          <div>
+            <h3>Featured products</h3>
+            <p>Highlighted items for quick discovery.</p>
+          </div>
+        </div>
+
+        <div class="products">
+          <article class="product-card">
+            <div class="product-top"><span class="badge">Gift</span><span class="price">₹299</span></div>
+            <div class="product-content">
+              <h4>Premium Gift Box</h4>
+              <p>Elegant gift pack for birthdays, festive occasions, and special moments.</p>
+              <div class="product-meta"><span class="stars">★★★★★</span><button class="btn btn-accent">Add to cart</button></div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-top"><span class="badge">Ladies</span><span class="price">₹399</span></div>
+            <div class="product-content">
+              <h4>Fashion Accessories Set</h4>
+              <p>Stylish accessories set designed for everyday wear and gifting.</p>
+              <div class="product-meta"><span class="stars">★★★★★</span><button class="btn btn-accent">Add to cart</button></div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-top"><span class="badge">Decor</span><span class="price">₹249</span></div>
+            <div class="product-content">
+              <h4>Decorative Gift Item</h4>
+              <p>Attractive decor piece for home styling and special gifting purposes.</p>
+              <div class="product-meta"><span class="stars">★★★★☆</span><button class="btn btn-accent">Add to cart</button></div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-top"><span class="badge">Popular</span><span class="price">₹199</span></div>
+            <div class="product-content">
+              <h4>Return Gift Pack</h4>
+              <p>Simple and useful gifting option for small functions and return gift needs.</p>
+              <div class="product-meta"><span class="stars">★★★★★</span><button class="btn btn-accent">Add to cart</button></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="offers">
+      <div class="container split">
+        <div class="feature-panel">
+          <h3 style="font-family:var(--font-display);font-size:var(--text-xl);margin-bottom:.5rem">Shopping theme highlights</h3>
+          <p>A shopping-style homepage with hero section, offers, products, and store actions.</p>
+          <div class="list">
+            <div><span>Featured collection</span><strong>Added</strong></div>
+            <div><span>Shopping buttons</span><strong>Added</strong></div>
+            <div><span>Offer section</span><strong>Added</strong></div>
+            <div><span>Store contact action</span><strong>Added</strong></div>
+          </div>
+        </div>
+
+        <div class="perks">
+          <article class="perk">
+            <h4>Storefront feel</h4>
+            <p>A more premium shopping-style design makes the website feel closer to an online store.</p>
+          </article>
+          <article class="perk">
+            <h4>Offer banner</h4>
+            <p>Offer sections help bring attention to current deals, promotions, or special collections.</p>
+          </article>
+          <article class="perk">
+            <h4>Quick actions</h4>
+            <p>Customers can browse the page and quickly call, message, or visit your shop location.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="contact-box">
+          <div class="head" style="margin-bottom:1rem">
+            <div>
+              <h3>Visit or contact</h3>
+              <p>Use the store details below for direct shopping enquiries and directions.</p>
+            </div>
+          </div>
+
+          <div class="contact-item"><small>Shop name</small><strong>Shri Gift House and Ladies Shop</strong></div>
+          <div class="contact-item"><small>Address</small><strong>B.J. Corner, Shirur, Pune</strong></div>
+          <div class="contact-item"><small>Phone</small><strong><a href="tel:+919139013499">9139013499</a> / <a href="tel:+919421769101">9421769101</a></strong></div>
+          <div class="contact-item"><small>Timings</small><strong>10 AM to 9 PM</strong></div>
+
+          <div class="hero-actions" style="margin-top:1rem">
+            <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=B.J.+Corner+Shirur+Pune" target="_blank" rel="noopener noreferrer">Open Map</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/919139013499?text=Hello%20Shri%20Gift%20House%2C%20please%20share%20your%20latest%20shopping%20items." target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="map">
+          <iframe title="Map showing B.J. Corner Shirur Pune" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=B.J.%20Corner%20Shirur%20Pune&output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>Shri Gift House and Ladies Shop</strong>
+        <p>B.J. Corner, Shirur, Pune • Shopping theme layout</p>
+      </div>
+      <div>
+        <p><a href="tel:+919139013499">9139013499</a> • <a href="tel:+919421769101">9421769101</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const btn = document.querySelector('[data-theme-toggle]');
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+
+      const draw = () => {
+        if (!btn) return;
+        btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        btn.innerHTML = theme === 'dark'
+          ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>'
+          : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>';
+      };
+
+      draw();
+      btn?.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        draw();
+      });
+    })();
+  </script>
+</body>
+</html>
